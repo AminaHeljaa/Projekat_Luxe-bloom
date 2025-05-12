@@ -1,0 +1,21 @@
+{
+    "korisnici": [
+      {
+        "id": 1,
+        "ime": "Admin Korisnik",
+        "email": "admin@luxebloom.com",
+        "lozinka": "admin123",
+        "uloga": "admin"
+      },
+      {
+        "id": 2,
+        "ime": "Gost Korisnik",
+        "email": "gost@luxebloom.com",
+        "lozinka": "gost123",
+        "uloga": "guest"
+      }
+    ],
+    "poruke": [],
+    "proizvodi": []
+  }
+  
