@@ -3,6 +3,13 @@
 @tailwind utilities;
 @import "@fontsource/playfair-display";
 @import "@fontsource/montserrat";
+@font-face {
+  font-family: 'Times New Roman Condensed';
+  src: local('Times New Roman'), local('Times New Roman Condensed');
+  font-weight: normal;
+  font-style: normal;
+}
+
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
