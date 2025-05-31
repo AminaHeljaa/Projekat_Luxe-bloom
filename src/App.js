@@ -8,9 +8,8 @@ import Prijava from "./pages/prijava";
 import Home from "./pages/home";
 import Admin from "./pages/admin";
 import Navbar from "./components/navbar";
+import Korpa from "./pages/korpa";
 import ErrorBoundary from './ErrorBoundary'; // Uvezi ErrorBoundary
-
-
 
 function App() {
   const [korisnik, setKorisnik] = useState(null);
@@ -32,12 +31,12 @@ function App() {
       )}
   
       <Routes>
-        
         <Route path="/" element={<Home />} />
         <Route path="/onama" element={<ONama />} />
         <Route path="/kontakt" element={<Kontakt />} />
         <Route path="/prijava" element={<Prijava />} />
         <Route path="/admin" element={<Admin />} />
+        <Route path="/korpa" element={<Korpa />} />
       </Routes>
     </ErrorBoundary>
   );

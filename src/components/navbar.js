@@ -8,9 +8,11 @@ const Navbar = () => {
       <div className="text-2xl font-bold text-pink-700">Luxe Bloom</div>
       <ul className="flex space-x-6 text-gray-700 font-medium">
         <li><Link to="/">Početna</Link></li>
-        <li><Link to="/proizvodi">Proizvodi</Link></li>
+        <li><Link to="/korpa">Korpa</Link></li>
+        <li><Link to="/onama">O nama</Link></li>
         <li><Link to="/kontakt">Kontakt</Link></li>
         <li><Link to="/prijava">Prijava</Link></li>
+      
       </ul>
     </nav>
   );
