@@ -10,7 +10,7 @@ function Kontakt() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-rose-300 via-pink-200 to-rose-400 flex items-center justify-center p-6">
+    <div className="min-h-screen bg-gradient-to-r from-pink-100 to-orange-100 flex items-center justify-center py-16 px-8">
       <div className="backdrop-blur-lg bg-white/60 p-10 rounded-3xl shadow-2xl max-w-2xl w-full">
        <h2
       className="text-4xl font-bold text-center mb-8"

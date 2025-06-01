@@ -73,9 +73,11 @@ import niveakrema from '../assets/niveakrema.jpg';
 import auraulje from '../assets/auraulje.jpg';
 import goldenrosegel from '../assets/goldenrosegel.jpg';
 import claresaset from '../assets/claresaset.jpg'; 
+import { useNavigate } from "react-router-dom";
 
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import "../index.css";
+ 
 
 const parfemi = [
   { id: 1, naziv: "Versace Bright Crystal", slika: parfem4},
@@ -211,6 +213,8 @@ const Slider = ({ title, items }) => {
 };
 
 const Home = () => {
+  const navigate = useNavigate();
+
   const proizvodi = [
     {
       naziv: "Chanel No. 5",
@@ -295,6 +299,50 @@ const Home = () => {
       <Slider title="Njega kože" items={njegaKoze} />
       <Slider title="Njega kose" items={kosa} />
       <Slider title="Njega noktiju" items={nokti} />
+    <footer className="mx-auto my-12 max-w-4xl rounded-2xl bg-white border-4 border-[#C8105D] py-8 px-10 shadow-md text-center">
+  <h2 className="text-2xl font-semibold text-[#C8105D] mb-4">Kontaktirajte nas</h2>
+  <p className="text-[#C8105D] mb-2">Email: info@luxebloom.com</p>
+  <p className="text-[#C8105D] mb-6">Telefon: +387 61 123 456</p>
+
+  <button
+    onClick={() => navigate("/kontakt")}
+    className="mb-6 rounded-full bg-[#C8105D] px-6 py-2 font-semibold text-white hover:bg-pink-500 transition"
+  >
+    Posetite Kontakt stranicu
+  </button>
+
+  <div className="flex justify-center gap-8 text-[#C8105D] text-xl font-medium">
+    <a
+      href="https://instagram.com/luxebloom"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Instagram"
+      className="hover:text-yellow-500 transition"
+    >
+      📸 Instagram
+    </a>
+    <a
+      href="https://facebook.com/luxebloom"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Facebook"
+      className="hover:text-yellow-500 transition"
+    >
+      👍 Facebook
+    </a>
+    <a
+      href="https://twitter.com/luxebloom"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Twitter"
+      className="hover:text-yellow-500 transition"
+    >
+      🐦 Twitter
+    </a>
+  </div>
+</footer>
+
+      
     </div>
   );
 };
