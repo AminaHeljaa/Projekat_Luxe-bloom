@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import AdminDodajProizvod from "./AdminDodajProizvod";
 import axios from "axios";
 
@@ -68,7 +68,9 @@ function App() {
       ) : (
         <div className="text-center">
           <h2 className="text-2xl mb-4">
-            Dobrodošao {user.username}
+            {(user.username === "Hana" || user.username === "Amina")
+              ? "Dobrodošla"
+              : "Dobrodošao"} {user.username}
             {user.isAdmin && " (admin)"}
           </h2>
           <button
@@ -84,5 +86,8 @@ function App() {
     </div>
   );
 }
+
+export default App;
+
 
 export default App;
