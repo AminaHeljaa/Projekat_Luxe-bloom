@@ -1,35 +1,35 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
+
+import Home from "./pages/home";
 import ONama from "./pages/onama";
 import Kontakt from "./pages/kontakt";
 import Prijava from "./pages/prijava";
-import Home from "./pages/home";
 import Admin from "./pages/admin";
 import Navbar from "./components/navbar";
 import Korpa from "./pages/korpa";
 import ErrorBoundary from './ErrorBoundary';
-import { CartProvider } from './context/CartContext'; // Dodano
+import { CartProvider } from './context/CartContext';
 
 function App() {
   const [korisnik, setKorisnik] = useState(null);
 
   useEffect(() => {
-    const ulogovani = localStorage.getItem("korisnik");
-    if (ulogovani) {
-      setKorisnik(JSON.parse(ulogovani));
+    const korisnikIzStorage = JSON.parse(localStorage.getItem("korisnik"));
+    if (korisnikIzStorage) {
+      setKorisnik(korisnikIzStorage);
     }
   }, []);
 
   return (
     <ErrorBoundary>
-      <CartProvider> {/* Omotaj sve u CartProvider */}
+      <CartProvider>
         <Navbar korisnik={korisnik} />
         {korisnik && (
           <div className="text-center bg-yellow-100 text-yellow-800 p-2">
             Ulogovani ste kao: <strong>{korisnik.ime}</strong> ({korisnik.uloga})
           </div>
         )}
-
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/onama" element={<ONama />} />
