@@ -183,8 +183,55 @@ const Home = () => {
       <Slider title="Njega kože" items={njegaKoze} />
       <Slider title="Njega kose" items={njegaKose} />
       <Slider title="Njega noktiju" items={njegaNokti} />
+      
+     <div className="w-full max-w-5xl mx-auto mt-20 mb-10 bg-white rounded-3xl border border-pink-300 shadow-md px-8 py-10
+  transition-transform duration-300 hover:scale-105 hover:shadow-[0_0_6px_2px_rgba(200,16,93,0.4)]">
+  <h2 className="text-2xl font-bold text-pink-700 text-center mb-6 tracking-wide">
+    Pratite nas na društvenim mrežama 
+  </h2>
+
+  <div className="flex justify-center gap-12 text-[#C8105D] text-lg font-medium mb-6">
+    <a
+      href="https://instagram.com/luxebloom"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Instagram"
+      className="hover:text-pink-500 transition-transform transform hover:scale-110"
+    >
+      📸 Instagram
+    </a>
+    <a
+      href="https://facebook.com/luxebloom"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Facebook"
+      className="hover:text-pink-500 transition-transform transform hover:scale-110"
+    >
+      👍 Facebook
+    </a>
+    <a
+      href="https://twitter.com/luxebloom"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Twitter"
+      className="hover:text-pink-500 transition-transform transform hover:scale-110"
+    >
+      🐦 Twitter
+    </a>
+  </div>
+
+  <p className="text-sm text-gray-500 text-center">
+    © {new Date().getFullYear()} Luxe Bloom. Sva prava zadržana.
+  </p>
+</div>
+
+
     </div>
+
   );
 };
+
+
+
 
 export default Home;
