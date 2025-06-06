@@ -2,23 +2,45 @@ import React, { useState } from "react";
 
 function Kontakt() {
   const [formData, setFormData] = useState({ ime: "", email: "", poruka: "" });
+  const [status, setStatus] = useState(null);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Poslano:", formData);
-    alert("Poruka uspješno poslana!");
+    setStatus(null);
+
+    try {
+      const response = await fetch("http://localhost:5000/api/messages", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ime: formData.ime,
+          email: formData.email,
+          tekst: formData.poruka,
+          datum: new Date()
+        }),
+      });
+
+      if (response.ok) {
+        setStatus("✅ Poruka je uspješno poslata!");
+        setFormData({ ime: "", email: "", poruka: "" }); // reset forme
+      } else {
+        throw new Error("Greška pri slanju poruke");
+      }
+    } catch (error) {
+      setStatus("❌ Došlo je do greške, pokušajte ponovo.");
+      console.error(error);
+    }
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-pink-100 to-orange-100 flex items-center justify-center py-16 px-8">
       <div className="backdrop-blur-lg bg-white/60 p-10 rounded-3xl shadow-2xl max-w-2xl w-full">
-       <h2
-      className="text-4xl font-bold text-center mb-8"
-      style={{ color: '#C8105D' }}
-      >
-      Kontaktirajte nas
-      </h2>
-
+        <h2
+          className="text-4xl font-bold text-center mb-8"
+          style={{ color: '#C8105D' }}
+        >
+          Kontaktirajte nas
+        </h2>
 
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
@@ -27,6 +49,7 @@ function Kontakt() {
               type="text"
               placeholder="Vaše ime"
               required
+              value={formData.ime}
               className="w-full border border-gray-300 p-3 rounded-xl bg-white/90 focus:outline-none focus:ring-2 focus:ring-rose-400"
               onChange={(e) => setFormData({ ...formData, ime: e.target.value })}
             />
@@ -38,6 +61,7 @@ function Kontakt() {
               type="email"
               placeholder="Email"
               required
+              value={formData.email}
               className="w-full border border-gray-300 p-3 rounded-xl bg-white/90 focus:outline-none focus:ring-2 focus:ring-rose-400"
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
             />
@@ -48,20 +72,27 @@ function Kontakt() {
             <textarea
               placeholder="Vaša poruka"
               required
+              value={formData.poruka}
               className="w-full border border-gray-300 p-3 rounded-xl bg-white/90 focus:outline-none focus:ring-2 focus:ring-rose-400"
               rows="6"
               onChange={(e) => setFormData({ ...formData, poruka: e.target.value })}
             ></textarea>
           </div>
 
-          <button type="submit"
-         style={{ backgroundColor: '#C8105D' }}
-        className="w-full text-white font-semibold py-3 rounded-xl hover:opacity-90 transition duration-300"
-        >
-  Pošalji poruku
-</button>
-
+          <button
+            type="submit"
+            style={{ backgroundColor: '#C8105D' }}
+            className="w-full text-white font-semibold py-3 rounded-xl hover:opacity-90 transition duration-300"
+          >
+            Pošalji poruku
+          </button>
         </form>
+
+        {status && (
+          <p className="mt-4 text-center font-medium text-lg">
+            {status}
+          </p>
+        )}
 
         <div className="mt-10 rounded-xl overflow-hidden shadow-lg">
           <iframe

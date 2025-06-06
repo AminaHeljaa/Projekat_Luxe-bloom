@@ -1,54 +1,60 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const Prijava = () => {
-  const [email, setEmail] = useState("");
-  const [lozinka, setLozinka] = useState("");
+const Prijava = ({ onLogin }) => {
+  const [korIme, setKorIme] = useState('');
+  const [lozinka, setLozinka] = useState('');
+  const [error, setError] = useState('');
+  const navigate = useNavigate();
+
+  const korisnici = [
+    { korisnickoIme: 'Amina', lozinka: 'amina123', uloga: 'admin' },
+    { korisnickoIme: 'Hana', lozinka: 'hana123', uloga: 'admin' },
+    {kornickoIme: 'Korisnik',lozinka:'korisnik123',uloga:'korisnik'}
+  ];
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Dodaj logiku za prijavu
-    console.log("Prijavljen sa:", email);
+    const korisnik = korisnici.find(
+      (k) => k.korisnickoIme === korIme && k.lozinka === lozinka
+    );
+    if (korisnik) {
+      onLogin(korisnik);
+      localStorage.setItem("korisnik", JSON.stringify(korisnik));
+      navigate("/");
+    } else {
+      setError('Neispravno korisničko ime ili lozinka.');
+    }
   };
 
   return (
-    <div className="bg-gray-200 min-h-screen flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg max-w-sm w-full">
-        <h2 className="text-2xl font-semibold text-center mb-6">Prijava</h2>
-        <form onSubmit={handleSubmit}>
-          <div className="mb-4">
-            <label htmlFor="email" className="block text-sm font-medium text-gray-600">
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              required
-            />
-          </div>
-          <div className="mb-6">
-            <label htmlFor="lozinka" className="block text-sm font-medium text-gray-600">
-              Lozinka
-            </label>
-            <input
-              type="password"
-              id="lozinka"
-              value={lozinka}
-              onChange={(e) => setLozinka(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              required
-            />
-          </div>
-          <button
-            type="submit"
-            className="w-full py-2 px-4 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition duration-300"
-          >
-            Prijavi se
-          </button>
-        </form>
-      </div>
+    <div className="max-w-md mx-auto mt-20 p-6 border rounded shadow">
+      <h2 className="text-2xl font-semibold mb-4 text-center text-pink-700">Prijava</h2>
+      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+        <input
+          type="text"
+          placeholder="Korisničko ime"
+          value={korIme}
+          onChange={(e) => setKorIme(e.target.value)}
+          required
+          className="border px-3 py-2 rounded focus:outline-pink-500"
+        />
+        <input
+          type="password"
+          placeholder="Lozinka"
+          value={lozinka}
+          onChange={(e) => setLozinka(e.target.value)}
+          required
+          className="border px-3 py-2 rounded focus:outline-pink-500"
+        />
+        {error && <p className="text-red-500">{error}</p>}
+        <button
+          type="submit"
+          className="bg-pink-700 text-white rounded py-2 hover:bg-pink-800 transition"
+        >
+          Prijavi se
+        </button>
+      </form>
     </div>
   );
 };
