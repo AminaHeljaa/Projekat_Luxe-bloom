@@ -10,7 +10,7 @@ const Prijava = ({ onLogin }) => {
   const korisnici = [
     { korisnickoIme: 'Amina', lozinka: 'amina123', uloga: 'admin' },
     { korisnickoIme: 'Hana', lozinka: 'hana123', uloga: 'admin' },
-    {kornickoIme: 'Korisnik',lozinka:'korisnik123',uloga:'korisnik'}
+    {korisnickoIme: 'Korisnik',lozinka:'korisnik123',uloga:'korisnik'}
   ];
 
   const handleSubmit = (e) => {

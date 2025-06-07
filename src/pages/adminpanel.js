@@ -40,6 +40,22 @@ function AdminPanel() {
     setProizvod({ ...proizvod, [name]: value });
   };
 
+  const obrisiPoruku = async (id) => {
+  if (!window.confirm('Da li ste sigurni da želite obrisati ovu poruku?')) return;
+  try {
+    const res = await fetch(`http://localhost:5000/api/messages/${id}`, {
+      method: 'DELETE',
+    });
+    if (res.ok) {
+      setPoruke(poruke.filter(p => p._id !== id));
+    } else {
+      alert('Greška pri brisanju poruke');
+    }
+  } catch (error) {
+    alert('Greška pri brisanju poruke');
+  }
+};
+
   return (
     <div className="max-w-5xl mx-auto p-6 mt-10 space-y-10 bg-gray-50 min-h-screen">
       <h1 className="text-4xl font-extrabold text-pink-700 mb-6 text-center drop-shadow-lg">
@@ -108,16 +124,25 @@ function AdminPanel() {
             {poruke.map((poruka) => (
               <li
                 key={poruka._id}
-                className="border border-gray-200 rounded-lg p-5 bg-gray-50 hover:bg-gray-100 transition-shadow shadow-sm"
+                className="border border-gray-200 rounded-lg p-5 bg-gray-50 hover:bg-gray-100 transition-shadow shadow-sm flex justify-between items-start"
               >
-                <div className="flex justify-between items-center mb-1">
-                  <h3 className="font-semibold text-pink-700 text-lg">{poruka.ime}</h3>
-                  <time className="text-xs text-gray-400">
-                    {new Date(poruka.datum).toLocaleString()}
-                  </time>
+                <div>
+                  <div className="flex justify-between items-center mb-1">
+                    <h3 className="font-semibold text-pink-700 text-lg">{poruka.ime}</h3>
+                    <time className="text-xs text-gray-400">
+                      {new Date(poruka.datum).toLocaleString()}
+                    </time>
+                  </div>
+                  <div className="text-sm text-gray-600 mb-2">{poruka.email}</div>
+                  <p className="text-gray-800 whitespace-pre-wrap">{poruka.tekst}</p>
                 </div>
-                <div className="text-sm text-gray-600 mb-2">{poruka.email}</div>
-                <p className="text-gray-800 whitespace-pre-wrap">{poruka.tekst}</p>
+                <button
+                  onClick={() => obrisiPoruku(poruka._id)}
+                  className="ml-4 text-red-600 hover:text-red-800 font-semibold"
+                  title="Obriši poruku"
+                >
+                  Obriši
+                </button>
               </li>
             ))}
           </ul>

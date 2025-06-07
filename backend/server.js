@@ -86,6 +86,17 @@ app.get('/api/messages', async (req, res) => {
   }
 });
 
+// *NOVO* Brisanje poruke po ID-u
+app.delete('/api/messages/:id', async (req, res) => {
+  try {
+    await Poruka.findByIdAndDelete(req.params.id);
+    res.status(200).json({ message: 'Poruka obrisana' });
+  } catch (error) {
+    res.status(500).json({ message: 'Greška pri brisanju poruke' });
+  }
+});
+
 app.listen(PORT, () => {
-  console.log(`Server radi na portu ${PORT}`);
+ console.log(`Server radi na portu ${PORT}`);
+
 });

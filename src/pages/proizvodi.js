@@ -140,7 +140,7 @@ export const njegaKose = [
 
 export const njegaNokti = [
   { id: 1, naziv: "Essie Lak", slika: lak, opis: "Lak za nokte dugotrajne formule sa sjajnim efektom.", cijena: "10.00 " },
-  { id: 2, naziv: "Sally Hansen Tretman", slika: sally, opis: "Ulje za njegu zanoktica i omekšavanje kože oko noktiju.", cijena: "7.50 " },
+  { id: 2, naziv: "Sally Hansen Tretman", slika: sally, opis: "Ulje za njegu zanoktica.", cijena: "7.50 " },
   { id: 3, naziv: "Eveline Lak", slika: evelinelak, opis: "Brzo suši i dugotrajni lak za nokte.", cijena: "8.00 " },
   { id: 4, naziv: "Golden Rose Ulje", slika: goldenroseulje, opis: "Njegujuće ulje za zanoktice.", cijena: "6.50 " },
   { id: 5, naziv: "Catrice Lakovi", slika: carticelakovi, opis: "Razne nijanse lakova za nokte.", cijena: "7.00 " },

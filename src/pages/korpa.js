@@ -5,38 +5,17 @@ import reklama1 from '../assets/reklama1.jpg';
 import reklama2 from '../assets/reklama2.jpg';
 import reklama3 from '../assets/reklama3.jpg';
 
-
 const reklame = [
-  {
-    id: 1,
-    slika: reklama1,
-    tekst: "Iskoristite -15% popusta na parfeme!",
-  },
-  {
-    id: 2,
-    slika: reklama2,
-    tekst: "Ekskluzivni setovi parfema na sniženju!",
-  },
-  {
-    id: 3,
-    slika: reklama3,
-    tekst: "Nagradna igra i pokloni",
-  },
-  
+  { id: 1, slika: reklama1, tekst: "Iskoristite -15% popusta na parfeme!" },
+  { id: 2, slika: reklama2, tekst: "Ekskluzivni setovi parfema na sniženju!" },
+  { id: 3, slika: reklama3, tekst: "Nagradna igra i pokloni" },
 ];
-
 
 const Korpa = () => {
   const { cartItems, setCartItems } = useCart();
   const [items, setItems] = useState(cartItems || []);
   const [isHovering, setIsHovering] = useState(false);
-
-  // Animacija riječi za naslov
-  const rijeci = [
-    "proizvode za njegu",
-    "parfeme",
-    "šminku",
-  ];
+  const rijeci = ["proizvode za njegu", "parfeme", "šminku"];
   const [index, setIndex] = useState(0);
   const [fade, setFade] = useState(true);
 
@@ -77,82 +56,21 @@ const Korpa = () => {
 
   const naruci = () => {
     alert("Hvala na narudžbi!");
-    // Ovdje možeš dodati slanje narudžbe na backend ili sl.
   };
 
   return (
     <div
       style={{
-          minHeight: "100vh",
-          paddingInline: "15%",
-          fontFamily: "Segoe UI, Tahoma, Geneva, Verdana, sans-serif",
-          background: "linear-gradient(to right, #FCE7F3, #FFEDD5)",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "flex-start",
+        minHeight: "100vh",
+        paddingInline: "5%",
+        fontFamily: "Segoe UI, Tahoma, Geneva, Verdana, sans-serif",
+        background: "linear-gradient(to right, #FCE7F3, #FFEDD5)",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "flex-start",
       }}
     >
-      {/* Naslov sa fiksiranim "Naručite" */}
-      <h1
-        style={{
-          textAlign: "center",
-          marginTop: 60,
-          marginBottom: 50,
-          fontWeight: "bold",
-          fontSize: "3rem",
-          transition: "opacity 0.5s ease",
-          opacity: fade ? 1 : 0,
-        }}
-      >
-        <span style={{ color: "#000" }}>Naručite </span>
-        <span style={{ color: "#D6336C" }}>{rijeci[index]}</span>
-      </h1>
-      
-<div
-  style={{
-    display: "flex",
-    overflowX: "auto",
-    gap: 20,
-    paddingBottom: 20,
-    marginBottom: 40,
-  }}
->
-  {reklame.map(({ id, slika, tekst }) => (
-    <div
-      key={id}
-      style={{
-        minWidth: 180,
-        backgroundColor: "#fff0f6",
-        borderRadius: 12,
-        boxShadow: "0 4px 8px rgba(200,0,70,0.2)",
-        padding: 12,
-        flexShrink: 0,
-        cursor: "pointer",
-        userSelect: "none",
-        textAlign: "center",
-      }}
-      onClick={() => alert(`Kliknuli ste na reklamu: ${tekst}`)}
-    >
-      <img
-        src={slika}
-        alt={tekst}
-        style={{
-          width: "100%",
-          borderRadius: 8,
-          marginBottom: 8,
-          objectFit: "cover",
-          height: 300,
-        }}
-      />
-      <p style={{ color: "#C8105D", fontWeight: "bold", fontSize: 14 }}>
-        {tekst}
-      </p>
-    </div>
-  ))}
-</div>
-
-
-      <h2 style={{ marginBottom: 20, color: "#D6336C" }}>
+      <h2 style={{ marginTop: 60, marginBottom: 30, color: "#D6336C", fontSize: 24 }}>
         <FaShoppingCart /> Vaša korpa
       </h2>
 
@@ -164,7 +82,7 @@ const Korpa = () => {
             fontSize: 20,
             color: "#777",
             fontWeight: "bold",
-            marginBottom: 50
+            marginBottom: 50,
           }}
         >
           Vaša korpa je trenutno prazna!
@@ -182,9 +100,11 @@ const Korpa = () => {
                 boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
                 marginBottom: 16,
                 display: "flex",
+                flexDirection: "row",
                 alignItems: "center",
                 justifyContent: "space-between",
                 gap: 16,
+                flexWrap: "wrap",
               }}
             >
               <img
@@ -197,7 +117,7 @@ const Korpa = () => {
                   borderRadius: 8,
                 }}
               />
-              <div style={{ flex: 1 }}>
+              <div style={{ flex: 1, minWidth: 180 }}>
                 <h3 style={{ marginBottom: 4 }}>{item.naziv}</h3>
                 <p style={{ fontSize: 14, color: "#666" }}>{item.opis}</p>
                 <p>Cijena: {cijenaNum.toFixed(2)} EUR</p>
@@ -207,7 +127,8 @@ const Korpa = () => {
                   display: "flex",
                   alignItems: "center",
                   gap: 8,
-                  minWidth: 200,
+                  flexWrap: "wrap",
+                  justifyContent: "center",
                 }}
               >
                 <button
@@ -298,7 +219,7 @@ const Korpa = () => {
           <div
             style={{
               textAlign: "right",
-              fontSize: 22,
+              fontSize: 20,
               fontWeight: "bold",
               marginTop: 20,
               color: "#C8105D",
@@ -307,7 +228,7 @@ const Korpa = () => {
             Ukupno: {ukupno.toFixed(2)} EUR
           </div>
 
-          <div style={{ textAlign: "center", marginTop: 30, marginBottom:50}}>
+          <div style={{ textAlign: "center", marginTop: 30 }}>
             <button
               onClick={naruci}
               onMouseEnter={() => setIsHovering(true)}
@@ -330,6 +251,66 @@ const Korpa = () => {
           </div>
         </>
       )}
+
+      <h1
+        style={{
+          textAlign: "center",
+          marginTop: 60,
+          marginBottom: 40,
+          fontWeight: "bold",
+          fontSize: "2.5rem",
+          transition: "opacity 0.5s ease",
+          opacity: fade ? 1 : 0,
+        }}
+      >
+        <span style={{ color: "#000" }}>Naručite </span>
+        <span style={{ color: "#D6336C" }}>{rijeci[index]}</span>
+      </h1>
+
+      <div
+      style={{
+      display: "flex",
+      overflowX: "auto",
+      gap: 20,
+      paddingBottom: 40,
+      marginBottom: 40,
+      justifyContent: "center",  // dodaj ovo
+  }}
+>
+
+        {reklame.map(({ id, slika, tekst }) => (
+          <div
+            key={id}
+            style={{
+              minWidth: 180,
+              backgroundColor: "#fff0f6",
+              borderRadius: 12,
+              boxShadow: "0 4px 8px rgba(200,0,70,0.2)",
+              padding: 12,
+              flexShrink: 0,
+              cursor: "pointer",
+              userSelect: "none",
+              textAlign: "center",
+            }}
+            onClick={() => alert(`Kliknuli ste na reklamu: ${tekst}`)}
+          >
+            <img
+              src={slika}
+              alt={tekst}
+              style={{
+                width: "100%",
+                borderRadius: 8,
+                marginBottom: 8,
+                objectFit: "cover",
+                height: 250,
+              }}
+            />
+            <p style={{ color: "#C8105D", fontWeight: "bold", fontSize: 14 }}>
+              {tekst}
+            </p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

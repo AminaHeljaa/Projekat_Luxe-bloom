@@ -33,8 +33,8 @@ function Kontakt() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-r from-pink-100 to-orange-100 flex items-center justify-center py-16 px-8">
-      <div className="backdrop-blur-lg bg-white/60 p-10 rounded-3xl shadow-2xl max-w-2xl w-full">
+    <div className="min-h-screen bg-gradient-to-r from-pink-100 to-orange-100 flex flex-col items-center justify-center py-10 px-4 sm:px-8">
+      <div className="backdrop-blur-lg bg-white/70 p-8 sm:p-12 rounded-3xl shadow-2xl max-w-xl w-full">
         <h2
           className="text-4xl font-bold text-center mb-8"
           style={{ color: '#C8105D' }}
@@ -50,7 +50,7 @@ function Kontakt() {
               placeholder="Vaše ime"
               required
               value={formData.ime}
-              className="w-full border border-gray-300 p-3 rounded-xl bg-white/90 focus:outline-none focus:ring-2 focus:ring-rose-400"
+              className="w-full border border-gray-300 p-3 rounded-xl bg-white/90 focus:outline-none focus:ring-2 focus:ring-rose-400 transition"
               onChange={(e) => setFormData({ ...formData, ime: e.target.value })}
             />
           </div>
@@ -62,7 +62,7 @@ function Kontakt() {
               placeholder="Email"
               required
               value={formData.email}
-              className="w-full border border-gray-300 p-3 rounded-xl bg-white/90 focus:outline-none focus:ring-2 focus:ring-rose-400"
+              className="w-full border border-gray-300 p-3 rounded-xl bg-white/90 focus:outline-none focus:ring-2 focus:ring-rose-400 transition"
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
             />
           </div>
@@ -73,8 +73,8 @@ function Kontakt() {
               placeholder="Vaša poruka"
               required
               value={formData.poruka}
-              className="w-full border border-gray-300 p-3 rounded-xl bg-white/90 focus:outline-none focus:ring-2 focus:ring-rose-400"
-              rows="6"
+              className="w-full border border-gray-300 p-3 rounded-xl bg-white/90 focus:outline-none focus:ring-2 focus:ring-rose-400 transition"
+              rows="5"
               onChange={(e) => setFormData({ ...formData, poruka: e.target.value })}
             ></textarea>
           </div>
@@ -89,7 +89,7 @@ function Kontakt() {
         </form>
 
         {status && (
-          <p className="mt-4 text-center font-medium text-lg">
+          <p className="mt-4 text-center font-medium text-lg text-gray-800">
             {status}
           </p>
         )}
@@ -103,6 +103,7 @@ function Kontakt() {
             style={{ border: 0 }}
             allowFullScreen=""
             loading="lazy"
+            className="rounded-xl"
           ></iframe>
         </div>
       </div>
