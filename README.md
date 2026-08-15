@@ -1,9 +1,31 @@
 
 # 🌸 Luxe Bloom
 
+### ✨ Discover beauty. Discover your style.
+
 A modern and responsive web application for discovering and exploring perfumes and cosmetics.
 
 **Luxe Bloom** is a React-based web project developed as a frontend application with a simulated backend. The application provides product browsing, authentication, shopping cart functionality, favorites, contact form and an admin section for managing products.
+
+---
+
+## 📸 Project Preview
+
+### 🏠 Main Page
+
+![Luxe Bloom Main Page](./glavna.png)
+
+### 💐 Perfumes
+
+![Luxe Bloom Perfumes](./parfemi.png)
+
+### 🛒 Shopping Cart
+
+![Luxe Bloom Shopping Cart](./korpa.png)
+
+### 📩 Contact
+
+![Luxe Bloom Contact](./kontakt.png)
 
 ---
 
@@ -40,26 +62,6 @@ A modern and responsive web application for discovering and exploring perfumes a
 | 🗄️ JSON Server | Mock REST API |
 | 🔧 Git | Version control |
 | 🐙 GitHub | Code hosting |
-
----
-
-## 📸 Project Preview
-
-### 🏠 Main Page
-
-![Luxe Bloom Main Page](./glavna.png)
-
-### 💐 Perfumes
-
-![Luxe Bloom Perfumes](./parfemi.png)
-
-### 🛒 Shopping Cart
-
-![Luxe Bloom Shopping Cart](./korpa.png)
-
-### 📩 Contact
-
-![Luxe Bloom Contact](./kontakt.png)
 
 ---
 
@@ -103,7 +105,7 @@ http://localhost:3000
 
 ## 🗄️ Running the JSON Server
 
-The project uses JSON Server as a mock backend.
+The project uses **JSON Server** as a mock backend.
 
 Start the JSON Server with:
 
@@ -209,7 +211,7 @@ The admin section is protected through the application's authentication logic.
 
 The shopping cart is implemented using React Context.
 
-Main functionality includes:
+Main functionality:
 
 ```text
 Add product
@@ -222,8 +224,6 @@ Calculate total
      ↓
 Remove product
 ```
-
-The cart can be accessed through the navigation menu.
 
 ---
 
@@ -266,15 +266,14 @@ The layout adapts using responsive Tailwind CSS classes.
 Projekat_Luxe-bloom/
 │
 ├── 📁 public/
-│
 ├── 📁 src/
 │   ├── 📁 components/
 │   ├── 📁 pages/
 │   ├── 📁 context/
 │   ├── 📁 hooks/
 │   ├── 📁 services/
-│   ├── App.js
-│   └── index.js
+│   ├── 📄 App.js
+│   └── 📄 index.js
 │
 ├── 📄 db.json
 ├── 📄 package.json
@@ -301,7 +300,7 @@ The following resources are available:
 | `/korisnici` | Users            |
 | `/poruke`    | Contact messages |
 
-Example product:
+### Example Product
 
 ```json
 {
@@ -350,7 +349,7 @@ The application was tested manually through:
 
 ## 🔄 Application Flow
 
-The main user flow is:
+### User Flow
 
 ```text
 Open Luxe Bloom
@@ -425,6 +424,10 @@ Software Engineering Student
 
 This project was created for educational purposes as part of a web development project.
 
-````
+---
+
+# 🌸 Luxe Bloom
+
+### **Discover beauty. Discover your style.**
 
 
