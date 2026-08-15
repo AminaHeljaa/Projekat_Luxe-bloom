@@ -1,3 +1,4 @@
+
 # 🌸 Luxe Bloom
 
 A modern and responsive web application for discovering and exploring perfumes and cosmetics.
@@ -44,9 +45,21 @@ A modern and responsive web application for discovering and exploring perfumes a
 
 ## 📸 Project Preview
 
-![Luxe Bloom Preview](./luxe-bloom.png)
+### 🏠 Main Page
 
-> Screenshot of the Luxe Bloom application.
+![Luxe Bloom Main Page](./glavna.png)
+
+### 💐 Perfumes
+
+![Luxe Bloom Perfumes](./parfemi.png)
+
+### 🛒 Shopping Cart
+
+![Luxe Bloom Shopping Cart](./korpa.png)
+
+### 📩 Contact
+
+![Luxe Bloom Contact](./kontakt.png)
 
 ---
 
@@ -104,7 +117,7 @@ The backend will be available at:
 http://localhost:5000
 ```
 
-### Available API resources
+### Available API Resources
 
 ```text
 http://localhost:5000/proizvodi
@@ -267,7 +280,10 @@ Projekat_Luxe-bloom/
 ├── 📄 package.json
 ├── 📄 package-lock.json
 ├── 📄 README.md
-├── 🖼️ luxe-bloom.png
+├── 🖼️ glavna.png
+├── 🖼️ parfemi.png
+├── 🖼️ korpa.png
+├── 🖼️ kontakt.png
 └── 📄 .gitignore
 ```
 
@@ -352,7 +368,7 @@ Login / Register
 Use account functionality
 ```
 
-Admin flow:
+### Admin Flow
 
 ```text
 Admin Login
@@ -368,7 +384,7 @@ View Contact Messages
 
 ## 🎨 Design
 
-Luxe Bloom uses a modern beauty/cosmetics visual style with:
+Luxe Bloom uses a modern beauty and cosmetics visual style with:
 
 * Clean layouts
 * Product cards
@@ -400,7 +416,8 @@ Possible future improvements include:
 **Amina Helja**
 
 Software Engineering Student
-Politehnički fakultet – University of Zenica
+
+**Politehnički fakultet – University of Zenica**
 
 ---
 
@@ -408,9 +425,6 @@ Politehnički fakultet – University of Zenica
 
 This project was created for educational purposes as part of a web development project.
 
----
+````
 
-# 🌸 Luxe Bloom
-
-**Discover beauty. Discover your style.**
 
